@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="promo-title">Promo Detail - Civic Events</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-gray-50">
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-6" id="detail-title">Loading Video...</h1>
+
+        <div id="video-container" class="bg-white rounded-lg shadow-xl overflow-hidden mb-6">
+            </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-3">Description</h2>
+            <p id="promo-description" class="text-gray-700 leading-relaxed"></p>
+        </div>
+        
+        <div id="transcript-section" class="mt-8 bg-white p-6 rounded-lg shadow-md hidden">
+             <h2 class="text-2xl font-semibold text-gray-800 mb-3">Transcript / Accessibility Description</h2>
+             <pre id="promo-transcript" class="whitespace-pre-wrap font-mono text-sm text-gray-600 border p-3 rounded bg-gray-50"></pre>
+        </div>
+    </main>
+    
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/pages/promo-detail.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            Auth.requireLogin();
+            UI.initNav();
+            PromoDetailPage.init(); 
+        });
+    </script>
+</body>
+</html>

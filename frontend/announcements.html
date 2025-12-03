@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - Civic Events</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex justify-between items-center mb-6 border-b pb-3">
+            <h1 class="text-3xl font-extrabold text-gray-900">Latest Audio Announcements</h1>
+            <button id="create-announcement-btn" class="hidden bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+                <i class="fas fa-bullhorn mr-2"></i> Create Announcement
+            </button>
+        </div>
+
+        <div id="announcement-list" class="space-y-4">
+            <div class="h-20 bg-white rounded-lg shadow animate-pulse"></div>
+            <div class="h-20 bg-white rounded-lg shadow animate-pulse"></div>
+            </div>
+        
+    </main>
+
+    <div id="create-modal" class="fixed inset-0 bg-gray-600 bg-opacity-75 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-4">Create New Announcement</h2>
+            <form id="announcement-form" class="space-y-4">
+                <div>
+                    <label for="announcement-title" class="block text-sm font-medium text-gray-700">Title</label>
+                    <input type="text" id="announcement-title" required class="mt-1 block w-full p-2 border rounded-md">
+                </div>
+                <div>
+                    <label for="audio-upload" class="block text-sm font-medium text-gray-700">Audio File (.mp3, .wav)</label>
+                    <input type="file" id="audio-upload" accept="audio/*" required class="mt-1 block w-full text-sm text-gray-500">
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="announcement-published" class="h-4 w-4 text-blue-600 border-gray-300 rounded">
+                    <label for="announcement-published" class="ml-2 block text-sm text-gray-700">Publish Now</label>
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" id="close-modal-btn" class="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400">Cancel</button>
+                    <button type="submit" id="announcement-submit-btn" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">Publish</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/pages/announcements.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            Auth.requireLogin();
+            UI.initNav();
+            AnnouncementsPage.init(); 
+        });
+    </script>
+</body>
+</html>
