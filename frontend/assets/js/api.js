@@ -2,7 +2,8 @@
 
 // 1. CONFIGURATION: Based on your Postman JSON, the port is 5000.
 // If your terminal says 4000, change this number to 4000.
-const API_BASE_URL = "http://localhost:4000"; 
+const API_URL = "https://civic-events-project-keen-ivan.onrender.com";
+
 
 const Api = {
     request: function (endpoint, method = "GET", data = null, isFileUpload = false) {
